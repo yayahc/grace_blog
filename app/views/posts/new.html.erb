@@ -1,9 +1,37 @@
-<h1>New post</h1>
-
-<%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
+<div id="validation">
+  <br>
+  <input id="pass" type=password />
+  <button id="btn">sudo</button>
 </div>
+
+<div id="form-submit">
+  <h1>New post</h1>
+
+  <%= render "form", post: @post %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to posts", posts_path %>
+  </div>
+</div>
+
+<script>
+  const form = document.querySelector("#form-submit");
+  form.style.display = "none";
+
+  const btn = document.querySelector("#btn");
+  const pass = document.querySelector("#pass");  
+  const validation = document.querySelector("#validation");
+
+  btn.addEventListener("click", ()=>{
+    console.log(pass.value)
+    if (pass.value === "grace") {
+      validation.style.display = "none";
+      form.style.display = "block";
+    } else {
+      true;
+    }
+  })
+
+</script>
